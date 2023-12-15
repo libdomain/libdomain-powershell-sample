@@ -9,8 +9,4 @@ Function Get-RootDSE {
     Gets the RootDSE from LDAP server.
     #>
     $rootDSE = [LibDomain.Native]::get_root_dse()
-    
-    [PSCustomObject]@{
-        RootDSE = $rootDSE
-    }
 }
