@@ -32,6 +32,18 @@ apt-get install dotnet-sdk-7.0
 
 ## 3) Построение нативного модуля
 
+Для компиляции программы вам необходимо установить библиотеку libdomain.
+
+```bash
+apt-get install git libdomain-devel libconfig-devel cmake rpm-build glib2-devel
+```
+
+Клонируйте пример:
+
+```bash
+git clone https://github.com/libdomain/libdomain-powershell-sample && cd libdomain-powershell-sample
+```
+
 Для построения нативного модуля для libdomain выполните следующие шаги:
 
 ```bash
@@ -51,12 +63,18 @@ cd src && dotnet build
 После построения нативного и C# модулей, возможно, потребуется объединить их. Для этого скопируйте бинарные модули в папку bin.
 
 ```bash
-cp native/build/src/libdomain_wrapper.so ./bin/ && cp src/bin/Debug/net7.0/LibDomain.dll ./bin/
+cp native/build/libdomain_wrapper.so ./bin/ && cp src/bin/Debug/net7.0/LibDomain.dll ./bin/
 ```
 
 Теперь вы готовы к использованию.
 
 # Как использовать
+
+Для этого примера предполагаем, что у пользователя есть сервер OpenLDAP,
+работающий на локальном хосте на порту 3890 с simple authentication.
+В целях упрощения примера данные для подключения содержатся в файле native/main.c вы можете изменить их при необходимости для работы со своим LDAP сервером.
+
+Обратитесь к инструкции по настройке сервера LDAP если вам необходимо настроить LDAP сервер.
 
 ## 1) Запуск сценариев
 
