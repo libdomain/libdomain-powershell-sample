@@ -55,7 +55,7 @@ cd native && mkdir build && cd build && cmake .. && make -j `nproc`
 Построение модуля на C# для PowerShell включает использование .NET SDK. Вот базовый план:
 
 ```bash
-cd src && dotnet build
+cd ../../src && dotnet build
 ```
 
 ## 5) Объединение модулей
@@ -63,7 +63,7 @@ cd src && dotnet build
 После построения нативного и C# модулей, возможно, потребуется объединить их. Для этого скопируйте бинарные модули в папку bin.
 
 ```bash
-cp native/build/libdomain_wrapper.so ./bin/ && cp src/bin/Debug/net7.0/LibDomain.dll ./bin/
+cd .. && cp native/build/libdomain_wrapper.so ./bin/ && cp src/bin/Debug/net7.0/LibDomain.dll ./bin/
 ```
 
 Теперь вы готовы к использованию.

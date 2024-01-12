@@ -55,16 +55,15 @@ cd native && mkdir build && cd build && cmake .. && make -j `nproc`
 Building a C# module for PowerShell involves using the .NET SDK. Here's a basic outline:
 
 ```bash
-cd src && dotnet build
+cd ../../src && dotnet build
 ```
 
 ## 5) Combining Modules
 
 Once you have built the native and C# modules, you may need to combine them. To do so copy binary modules in bin folder.
-In the libdomain-powershell-sample folder run:
 
 ```bash
-cp native/build/libdomain_wrapper.so ./bin/ && cp src/bin/Debug/net7.0/LibDomain.dll ./bin/
+cd .. && cp native/build/libdomain_wrapper.so ./bin/ && cp src/bin/Debug/net7.0/LibDomain.dll ./bin/
 ```
 
 Now you good to go.
